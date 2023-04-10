@@ -3,6 +3,7 @@ const errorHandler = require("./middleware/errorHandler");
 const connectDb = require("./config/dbConnection");
 const app = express();
 const dotenv = require("dotenv").config();
+app.use(cors({origin:"*"}))
 connectDb();
 app.use(express.json())
 app.use("/api/contacts",require("./routes/contactRoutes"))
