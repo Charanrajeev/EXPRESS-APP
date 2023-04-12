@@ -5,7 +5,7 @@ const validateToken = asyncHandler(async (req,res,next)=>{
     let token;
     let authHeader = req.headers.authorization || req.headers.Authorization;
     if(authHeader){
-        token = authHeader.split(" ")[1];
+        token=authHeader;
         jwt.verify(token,process.env.ACCESS_TOKEN_SECERT,(err,decoded)=>{
             if(err){
                 res.status(401);
